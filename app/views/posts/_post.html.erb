@@ -11,6 +11,12 @@
     tag:
     <%= post.tag %>
   </div>
+  
+  <div class="image">
+    <% if post.image.attached? %>
+      <%= image_tag post.image %>
+    <% end %>
+  </div>
 
   <div>
     comment:
