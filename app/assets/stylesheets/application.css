@@ -43,7 +43,7 @@ textarea{
     margin:100px 0;
 } 
 
-.content{
+.comment{
     border: 1px #000 solid;
 }
 
@@ -68,7 +68,10 @@ a:has(i){
     text-align: right;
 }
 
-
+.image img{
+    width:300px;
+    border: 1px #000 solid;
+}
 
 
 

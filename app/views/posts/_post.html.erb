@@ -8,8 +8,7 @@
   </div>
 
   <div>
-    tag:
-    <%= post.tag %>
+    tag:<%= post.tag %>
   </div>
   
   <div class="image">
@@ -18,11 +17,8 @@
     <% end %>
   </div>
 
-  <div>
-    comment:
-    <div class="content">
-      <%= simple_format(post.content) %>
-    </div>
+  <div class="comment">
+    <%= simple_format(post.content) %>
   </div>
 
   <div class="like">
