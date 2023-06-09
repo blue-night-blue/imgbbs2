@@ -2,15 +2,13 @@
 
 <h1>Posts</h1>
 
-
+<div class="new">
+  <%= link_to "New post", new_post_path %>
+</div>
 <%= turbo_frame_tag "cats-list" do %>
 
   <div id="posts">
     <% @posts.each do |post| %>
-      <div class="like">
-        <%= link_to "like","posts/#{post.id}/like" ,data: { turbo_method: :post  }  %>
-        <%= post.like %> 
-      </div>
       <%= render "post", post: post %>
     <% end %>
   </div>
@@ -18,4 +16,3 @@
 <% end %>
 
 
-<%= link_to "New post", new_post_path %>

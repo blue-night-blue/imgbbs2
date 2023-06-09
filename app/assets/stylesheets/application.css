@@ -14,12 +14,61 @@
  *= require_self
  */
  
- 
+ body{
+    width:300px;
+ }
 
-form{
+ a:link,
+ a:visited{
+    color: #000;
+ }
+ 
+ input,textarea{
+    width:300px;
+ }
+
+textarea{
+    height:10em;
+}
+
+ input[type="submit"]{
+    width: auto;
+ }
+
+.post{
     margin-bottom: 100px;
 }
  
- 
- 
- 
+.new{
+    margin:100px 0;
+} 
+
+.content{
+    border: 1px #000 solid;
+}
+
+
+.like{
+    margin-top:5px;
+    float: left;
+}
+
+a:has(i){
+    text-decoration: none;
+}
+
+.like_count{
+    font-size: 30px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.edit_and_delete{
+    margin-top:10px;
+    text-align: right;
+}
+
+
+
+
+

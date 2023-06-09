@@ -1,17 +1,34 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Name:</strong>
-    <%= post.name %>
-  </p>
+<div id="<%= dom_id post %>" class="post">
+  <div>
+    name:<%= post.name %>
+  </div>
 
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
+  <div>
+    date:<%= post.created_at.strftime('%Y/%m/%d') %>
+  </div>
 
-  <p>
-    <strong>Tag:</strong>
+  <div>
+    tag:
     <%= post.tag %>
-  </p>
+  </div>
+
+  <div>
+    comment:
+    <div class="content">
+      <%= simple_format(post.content) %>
+    </div>
+  </div>
+
+  <div class="like">
+    <%= link_to  like_post_path(post) ,data: { turbo_method: :post  } do %>
+      <i class="fa-regular fa-thumbs-up fa-2xl" style="color: #000000;"></i>
+    <% end %>
+    <span class="like_count"><%= post.like %></span>
+  </div>
+
+  <div class="edit_and_delete">
+    <%= link_to 'edit', edit_post_path(post),data: { turbo: false } %> / 
+    <%= link_to 'delete', post, data: { turbo_method: :delete } %>
+  </div>
 
 </div>
