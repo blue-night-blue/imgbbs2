@@ -77,6 +77,20 @@ class PostsController < ApplicationController
     end
   end
 
+
+  
+  
+  
+  
+
+  def tag
+    @tag=params[:id]
+    @post=Post.where("tag LIKE ?","%#{@tag}%").order(created_at: :desc) 
+  end 
+  
+  
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

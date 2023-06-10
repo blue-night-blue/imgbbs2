@@ -7,10 +7,13 @@
     date:<%= post.created_at.strftime('%Y/%m/%d') %>
   </div>
 
-  <div>
-    tag:<%= post.tag %>
+  <div class="tag">
+    tag:
+    <% post.tag.to_s.split(" ").each do |tag| %>
+        <%= link_to "#{tag}",tag_post_path(post) %> 
+    <% end %> 
   </div>
-  
+
   <div class="image">
     <% if post.image.attached? %>
       <%= image_tag post.image %>

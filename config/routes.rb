@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   post '/posts/:id/like', to: 'posts#like', as: 'like_post'
+  get '/posts/:id/tag', to: 'posts#tag', as: 'tag_post'
 
   
   
