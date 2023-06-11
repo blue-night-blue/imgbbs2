@@ -10,7 +10,7 @@
   <div class="tag">
     tag:
     <% post.tag.to_s.split(" ").each do |tag| %>
-        <%= link_to "#{tag}",tag_post_path(post) %> 
+        <%= link_to "#{tag}",tag_post_path(tag) ,data: { turbo: false } %>
     <% end %> 
   </div>
 

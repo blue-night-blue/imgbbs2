@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>tag:<%= @tag %></h1>
+
+
+<%= turbo_frame_tag "cats-list" do %>
+
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <%= render "post", post: post %>
+    <% end %>
+  </div>
+
+<% end %>
+
+
+
+<div>
+  <%= link_to "Back to posts", root_path %>
+</div>
+
