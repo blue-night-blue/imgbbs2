@@ -19,13 +19,15 @@
 
   <div class="image">
     <% if post.image.attached? %>
-      <%= image_tag post.image %>
+      <%= link_to post.image do %>
+        <%= image_tag post.image.variant(resize:'300x300').processed %>
+      <% end %>
     <% end %>
   </div>
   
   <div>
     <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image,direct_upload: true %>
   </div>
 
   <div>

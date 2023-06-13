@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(image_resize(post_params))
 
     respond_to do |format|
       if @post.save
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to request.referer, notice: "Post was successfully created." }
+        format.html { redirect_to request.referer }
         format.json { render :index, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.update(image_resize(post_params))
         format.html { redirect_to root_path, notice: "Post was successfully updated." }
         format.json { render :index, status: :ok, location: @post }
       else
@@ -101,4 +101,16 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:name, :content, :tag, :image)
     end
+
+    def image_resize(params)
+      if params[:image]
+        params[:image].tempfile = ImageProcessing::MiniMagick
+          .source(params[:image].tempfile)
+          .resize_to_limit(1024, 768)
+          .strip
+          .call
+      end
+      params
+    end 
+    
 end
