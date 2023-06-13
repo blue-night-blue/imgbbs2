@@ -17,7 +17,7 @@
   <div class="image">
     <% if post.image.attached? %>
       <%= link_to post.image do %>
-        <%= image_tag post.image.variant(resize:'300x300').processed %>
+        <%= image_tag post.image %>
       <% end %>
     <% end %>
   </div>
