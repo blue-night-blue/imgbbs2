@@ -1,24 +1,8 @@
-# README
+# 何これ
+シンプルな画像掲示板システムその２
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能
+- 文章と画像を投稿できる。※画像はs3に送ってる
+- 投稿のeach部分をturbo framesに収め、いいねボタン押しまくれる（けど挙動がおかしい。絶対改善できるはずだが今のところ保留）
+- 画像投稿時はminimagickを使い、幅1024pxの画像にリサイズしてEXIFも消してる
+- 画像表示はvariantにて幅300pxのものに置き換えてるけどクリックしたらオリジナル（つっても幅１０２４ではあるけど）に飛ぶ
